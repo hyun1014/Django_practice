@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Question {{tar_q.id}} result{% endblock title %}
+{% block content %}
+    {% include 'polls/base.html' %}
+    <h1>Result</h1>
+    <h2>{{tar_q.question_text}}</h2>
+    <ul>
+        {% for c in tar_q.choice_set.all %}
+            <li>{{c.choice_text}} - {{c.vote_cnt}} vote{{c.vote_cnt|pluralize}}</li>
+        {% endfor %}
+    </ul>
+    <h3><a href="{% url 'polls:index' %}">Go to polls index</a></h3>
+{% endblock content %}
+<!--
+<html>
+    <head><title>Result</title></head>
+    <body>
+        <h1>Result</h1>
+        <h2>{{tar_q.question_text}}</h2>
+        <ul>
+            {% for c in tar_q.choice_set.all %}
+                <li>{{c.choice_text}} - {{c.vote_cnt}} vote{{c.vote_cnt|pluralize}}</li>
+            {% endfor %}
+        </ul>
+        <h3><a href="{% url 'polls:index' %}">Go to polls index</a></h3>
+    </body>
+</html>
+-->

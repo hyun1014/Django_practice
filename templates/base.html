@@ -1,0 +1,14 @@
+<html>
+    <head><title>{% block title %}{% endblock title %}</title></head>
+    <body>
+        {% block applist %}
+            <h2>App list</h2>
+            <ul>
+                {% for a in applist %}
+                    <li><a href="{% url a|add:':index' %}">{{a}}</a></li>
+                {% endfor %}
+            </ul>
+        {% endblock applist %}<br/><br/>
+        {% block content %}{% endblock content %}<br/><br/>
+    </body>
+</html>

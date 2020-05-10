@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Polls index{% endblock title %}
+{% block content %}
+    {% include 'polls/base.html' %}
+    <ul>
+        {% for q in q_list %}
+            <li><a href="{% url 'polls:select' pk=q.id %}">{{q.question_text}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+<!--
+    <html>
+        <head><title>Polls index</title></head>
+        <body>
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+            <h1>Polls app</h1>
+            <ul>
+                {% for q in q_list %}
+                    <li><a href="{% url 'polls:select' pk=q.id %}">{{q.question_text}}</a></li>
+                {% endfor %}
+            </ul>
+        </body>
+    </html>
+-->
