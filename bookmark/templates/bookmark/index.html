@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Bookmark app{% endblock %}
+{% block content %}
+    {% include 'bookmark/bookmarkbase.html' %}
+    <h2>Bookmark List</h2>
+    <ul>
+        {% for u in object_list %}
+            <li><a href="{% url 'bookmark:urldetail' pk=u.id %}">{{u.title}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

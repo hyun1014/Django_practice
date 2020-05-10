@@ -21,4 +21,5 @@ urlpatterns = [
     path('', DefaultView.as_view(), name='default'),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls',namespace='polls')),
+    path('bookmark', include('bookmark.urls', namespace='bookmark')),
 ]

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}URL {{object.id}}{% endblock title %}
+{% block content %}
+    {% include 'bookmark/bookmarkbase.html' %}
+    <h2>{{object.title}} webpage</h2>
+    <ul>
+        <li>URL: <a href="{{object.url}}">{{object.url}}</a></li>
+    </ul>
+{% endblock content %}
