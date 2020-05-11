@@ -3,9 +3,13 @@
 {% block content %}
     <h1>Post archives for {{day|date:'N d, Y'}}</h1>
     <ul>
-        {% for p in object_list %}
-            <li>{{p.modify_dt|date:'Y-m-d'}}&nbsp;&nbsp;
-            <a href="p.get_absolute_url"><strong>{{p.title}}</strong></a></li>
-        {% endfor %}
+        {% if not object_list %}
+            <li>There is no post</li>
+        {% else %}
+            {% for p in object_list %}
+                <li>{{p.modify_dt|date:'Y-m-d'}}&nbsp;&nbsp;
+                <a href={{p.get_absoulte_url}}><strong>{{p.title}}</strong></a></li>
+            {% endfor %}
+        {% endif %}
     </ul>
 {% endblock %}

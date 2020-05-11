@@ -10,11 +10,11 @@ class Post(models.Model):
         description text.')
     content = models.TextField('CONTENT')
     create_dt = models.DateTimeField('CREATE DATE', auto_now_add=True)
-    modify_dt = models.DateTimeField('MODIFIED DATE', auto_now=True)
+    modify_dt = models.DateTimeField('MODIFIED DATE', auto_now=False)
 
     class Meta:
-        verbose_name = 'post'
-        verbose_name_plural = 'posts'
+        verbose_name = 'posting'
+        verbose_name_plural = 'postings'
         db_table = 'blog_posts'
         ordering = ('-modify_dt',)
 

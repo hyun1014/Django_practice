@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import DefaultView
 
+app_name='ddd'
 urlpatterns = [
     path('', DefaultView.as_view(), name='default'),
     path('admin/', admin.site.urls),

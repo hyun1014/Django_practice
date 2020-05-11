@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, TodayArchiveView
 from .models import Post
+
 # Create your views here.
 
 class PostLV(ListView):
@@ -22,7 +23,9 @@ class PostYAV(YearArchiveView):
     model = Post
     date_field = 'modify_dt'
     make_object_list = True
+    context_object_name = 'p_list'
     #context_object_name = 'post_list'
+    allow_empty = True
 
 class PostMAV(MonthArchiveView):
     model = Post
@@ -31,8 +34,11 @@ class PostMAV(MonthArchiveView):
 class PostDAV(DayArchiveView):
     model = Post
     date_field = 'modify_dt'
+    allow_empty = True
 
 class PostTAV(TodayArchiveView):
     model = Post
     date_field = 'modify_dt'
+    allow_empty = True
+    
     

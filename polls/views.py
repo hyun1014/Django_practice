@@ -6,11 +6,6 @@ from django.template import loader
 from django.views import generic
 from mysite import settings
 
-def onlyappname(st):
-        return st.split('.')[0]
-
-applist = list(map(onlyappname, settings.INSTALLED_APPS[6:]))
-
 # Create your views here.
 #def index(request):
 #    question_list = Question.objects.order_by('pub_date')[:5]
@@ -23,12 +18,6 @@ class IndexView(generic.ListView):
     context_object_name = 'q_list'
     def get_queryset(self):
         return Question.objects.order_by('pub_date')[:5]
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["applist"] = applist
-        return context
-
 
 
 #def select(request, question_id):
@@ -43,7 +32,6 @@ class SelectView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["q_list"] = Question.objects.all()
-        context["applist"] = applist
         return context
     
     
@@ -68,8 +56,3 @@ class ResultView(generic.DetailView):
     model = Question
     template_name = 'polls/result.html'
     context_object_name = 'tar_q'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["applist"] = applist
-        return context
-    

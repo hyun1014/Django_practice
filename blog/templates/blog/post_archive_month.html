@@ -8,4 +8,10 @@
             <a href="{{p.get_absolute_url}}"><strong>{{p.title}}</strong></a></li>
         {% endfor %}
     </ul>
+    {% for d in date_list %}
+        {{d|date:'Y-m-d-H-i-s'}}<br>
+    {% endfor %}
+    {% for p in object_list %}
+        {{p.modify_dt|date:'Y-m-d-H-i-s'}}<br>
+    {% endfor %}
 {% endblock %}

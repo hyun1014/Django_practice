@@ -9,6 +9,7 @@
                     Year{{date|date:'Y'}}
                 </a>
             </li>
+            {{date|date:'Y-m'}}
         {% endfor %}
     </ul>
     <br>
@@ -20,4 +21,5 @@
             {% endfor %}
         </ul>
     </div>
+    <h3><a href="{% url 'blog:post_today_archive' %}">Post of today</a></h3>
 {% endblock %}

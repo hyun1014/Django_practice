@@ -4,9 +4,10 @@
         {% block applist %}
             <h2>App list</h2>
             <ul>
-                {% for a in applist %}
-                    <li><a href="{% url a|add:':index' %}">{{a}}</a></li>
-                {% endfor %}
+                <li><a href="{% url 'polls:index' %}">Polls</a></li>
+                <li><a href="{% url 'bookmark:index' %}">Bookmark</a></li>
+                <li><a href="{% url 'blog:index' %}">Blog</a></li>
+                <li><a href="/admin">Admin</a></li>
             </ul>
         {% endblock applist %}<br/><br/>
         {% block content %}{% endblock content %}<br/><br/>
