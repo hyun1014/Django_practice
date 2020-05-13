@@ -20,7 +20,7 @@ from .views import HomeView
 app_name='ddd'
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('polls/', include('polls.urls',namespace='polls')),
     path('bookmark', include('bookmark.urls', namespace='bookmark')),
     path('blog/', include('blog.urls', namespace='blog')),
