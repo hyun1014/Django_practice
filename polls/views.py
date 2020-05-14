@@ -42,7 +42,9 @@ def vote(request, question_id):
     try: 
         selected_choice = Choice.objects.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'polls/select.html', {'tar_q':target_question, 'error_msg':'Error occured.', 'applist': applist})
+        q_list = Question.objects.all()
+        return render(request, 'polls/select.html', {'tar_q':target_question, 'error_msg':'Error occured.',
+        'q_list':q_list})
     else:
         selected_choice.vote_cnt+=1
         selected_choice.save()
