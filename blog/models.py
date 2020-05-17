@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 # Create your models here.
 class Post(models.Model):
@@ -11,6 +12,7 @@ class Post(models.Model):
     content = models.TextField('CONTENT')
     create_dt = models.DateTimeField('CREATE DATE', auto_now_add=True)
     modify_dt = models.DateTimeField('MODIFIED DATE', auto_now=False)
+    tags = TaggableManager()
 
     class Meta:
         verbose_name = 'posting'

@@ -5,13 +5,16 @@ from .models import Bookmark
 
 @admin.register(Bookmark)
 class BookmarkAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'url']
+    list_display = ['id', 'title', 'url', 'tag_list']
     fieldsets = (
         ('Info', {
             "fields": (
-                'title', 'url',
+                'title', 'url','tags',
             ),
         }),
     )
+
+    def tag_list(self, obj):
+        return ', '.join(o.name for o in obj.tags.all())
     
 #admin.site.register(Bookmark, BookmarkAdmin)

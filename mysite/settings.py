@@ -24,7 +24,7 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt'), 'r') as f:
     SECRET_KEY = f.readline()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'bookmark.apps.BookmarkConfig',
     'blog.apps.BlogConfig',
+    'taggit.apps.TaggitAppConfig',
+    'taggit_templatetags2',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+
+#For tag settings
+TAGGIT_CASE_INSENSITIVE = True
